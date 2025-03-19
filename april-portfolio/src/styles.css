@@ -1,0 +1,596 @@
+/* =====================================================
+   Global Variables & Base Styles
+===================================================== */
+:root {
+  /* New Color Palette (using HSL values) */
+  --burnt-sienna: hsla(12, 83%, 62%, 1);
+  --coral: hsla(16, 85%, 68%, 1);
+  --rebecca-purple: hsla(274, 53%, 37%, 1);
+  --persian-green: hsla(175, 75%, 36%, 1);
+  --jet: hsla(36, 5%, 19%, 1);
+
+  /* Gradients */
+  --gradient-top: linear-gradient(0deg, var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
+  --gradient-right: linear-gradient(90deg, var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
+  --gradient-bottom: linear-gradient(180deg, var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
+  --gradient-left: linear-gradient(270deg, var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
+  --gradient-radial: radial-gradient(var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
+
+  /* Typography & Global Font */
+  --font-base: 'Poppins', sans-serif;
+  --neutral-white: #ffffff;
+  --background: #f2f2f2;
+  --text-dark: #222222;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: var(--background);
+  color: var(--text-dark);
+  
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  width: 100%;
+  height: 100%;
+  /* Background pattern */
+  background-color: #fbf2ff;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.068) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.about-card {
+  font-family: var(--font-base);
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--persian-green);
+  border: 3px solid var(--jet);
+  box-shadow: 12px 12px 0 var(--jet);
+  color: var(--neutral-white);
+  text-align: center;
+}
+.about-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.about-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+/* =====================================================
+   1. Typography
+===================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-base);
+  margin: 0 0 10px;
+}
+h1 { font-size: 48px; font-weight: 900; }
+h2 { font-size: 36px; font-weight: 700; }
+h3 { font-size: 28px; font-weight: 600; }
+h4 { font-size: 24px; font-weight: 600; }
+h5 { font-size: 20px; font-weight: 600; }
+h6 { font-size: 16px; font-weight: 600; }
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+/* =====================================================
+   2. Card Component
+===================================================== */
+.card {
+  font-family: var(--font-base);
+  width: 300px;
+  height: 250px;
+  transform: translate(-6px, -6px);
+  background: var(--coral);
+  border: 3px solid var(--jet);
+  box-shadow: 12px 12px 0 var(--jet);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* Use white text on dark Coral */
+  color: var(--neutral-white);
+}
+
+.card:hover {
+  transform: translate(-4px, -4px);
+}
+
+.card .head {
+  font-size: 14px;
+  font-weight: 900;
+  width: 100%;
+  height: 32px;
+  background: var(--neutral-white);
+  padding: 5px 12px;
+  color: var(--jet);
+  border-bottom: 3px solid var(--jet);
+}
+
+.card .content {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  /* Use white text if background is dark; otherwise dark text */
+  color: var(--neutral-white);
+}
+
+.card .button {
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 3px solid var(--jet);
+  box-shadow: 3px 3px 0 var(--jet);
+  font-weight: 750;
+  background: var(--persian-green);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: var(--neutral-white);
+}
+
+.card .button:hover {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 1.5px 1.5px 0 var(--jet);
+  background: var(--rebecca-purple);
+}
+
+.card .button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+/* =====================================================
+   3. Input Containers
+===================================================== */
+.input__container {
+  position: relative;
+  background: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  border: 4px solid var(--jet);
+  max-width: 350px;
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(-10deg);
+  perspective: 1000px;
+  box-shadow: 10px 10px 0 var(--jet);
+}
+
+.input__container:hover {
+  transform: rotateX(5deg) rotateY(1deg) scale(1.05);
+  box-shadow: 25px 25px 0 -5px var(--burnt-sienna), 25px 25px 0 0 var(--jet);
+}
+
+.shadow__input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: translateZ(-50px);
+  background: linear-gradient(45deg, rgba(255,107,107,0.4) 0%, rgba(255,107,107,0.1) 100%);
+  filter: blur(20px);
+}
+
+.input__button__shadow {
+  cursor: pointer;
+  border: 3px solid var(--jet);
+  background: var(--burnt-sienna);
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 3;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.input__button__shadow:hover {
+  background: var(--burnt-sienna);
+  transform: translateZ(10px) translateX(-5px) translateY(-5px);
+  box-shadow: 5px 5px 0 var(--jet);
+}
+
+.input__button__shadow svg {
+  fill: var(--jet);
+  width: 25px;
+  height: 25px;
+}
+
+.input__search {
+  width: 100%;
+  outline: none;
+  border: 3px solid var(--jet);
+  padding: 15px;
+  font-size: 18px;
+  background: var(--neutral-white);
+  color: var(--text-dark);
+  transform: translateZ(10px);
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 3;
+  letter-spacing: -0.5px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.input__search::placeholder {
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.input__search:hover,
+.input__search:focus {
+  background: #f0f0f0;
+  transform: translateZ(20px) translateX(-5px) translateY(-5px);
+  box-shadow: 5px 5px 0 var(--jet);
+}
+
+.input__container::before {
+  content: "USERNAME";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: var(--burnt-sienna);
+  color: var(--neutral-white);
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 14px;
+  transform: translateZ(50px);
+  z-index: 4;
+  border: 2px solid var(--jet);
+}
+
+/* =====================================================
+   4. Brutalist Button
+===================================================== */
+.brutalist-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 169px;
+  height: 60px;
+  background-color: var(--jet);
+  color: var(--neutral-white);
+  text-decoration: none;
+  font-family: var(--font-base);
+  font-weight: bold;
+  border: 3px solid var(--neutral-white);
+  outline: 3px solid var(--jet);
+  box-shadow: 6px 6px 0 var(--persian-green);
+  transition: all 0.1s ease-out;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.brutalist-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  z-index: 1;
+  transition: none;
+  opacity: 0;
+}
+
+@keyframes slide {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.brutalist-button:hover::before {
+  opacity: 1;
+  animation: slide 2s infinite;
+}
+
+.brutalist-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0 var(--jet);
+}
+
+.brutalist-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+  background-color: var(--neutral-white);
+  color: var(--jet);
+  border-color: var(--jet);
+}
+
+/* MS Logo for Brutalist Button */
+.ms-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.brutalist-button:hover .ms-logo {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.brutalist-button:active .ms-logo {
+  transform: rotate(10deg) scale(0.9);
+}
+
+.ms-logo-square {
+  width: 100%;
+  height: 100%;
+}
+
+.ms-logo-square:nth-child(1) {
+  background-color: var(--burnt-sienna);
+}
+.ms-logo-square:nth-child(2) {
+  background-color: var(--coral);
+}
+.ms-logo-square:nth-child(3) {
+  background-color: var(--rebecca-purple);
+}
+.ms-logo-square:nth-child(4) {
+  background-color: var(--persian-green);
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  transition: transform 0.2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.brutalist-button:hover .button-text {
+  transform: skew(-5deg);
+}
+
+.brutalist-button:active .button-text {
+  transform: skew(5deg);
+}
+
+.button-text span:first-child {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.button-text span:last-child {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   5. Brutal Subscribe
+===================================================== */
+.brutal-subscribe__container {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--neutral-white);
+  border: 5px solid var(--jet);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.605);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.brutal-subscribe__container:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.brutal-subscribe__header {
+  background-color: var(--jet);
+  color: var(--neutral-white);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.brutal-subscribe__header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--burnt-sienna) 0,
+    var(--burnt-sienna) 10px,
+    var(--jet) 10px,
+    var(--jet) 20px
+  );
+  opacity: 0.1;
+  animation: stripe-animation 20s linear infinite;
+}
+
+@keyframes stripe-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.brutal-subscribe__title {
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  text-shadow: 3px 3px 0 var(--jet);
+}
+
+.brutal-subscribe__subtitle {
+  display: block;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.brutal-subscribe__form {
+  padding: 20px;
+}
+
+.brutal-subscribe__input {
+  width: calc(100% - 26px);
+  padding: 10px;
+  border: 3px solid var(--jet);
+  font-family: inherit;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.brutal-subscribe__input:focus {
+  outline: none;
+  background-color: var(--coral);
+  transform: scale(1.05);
+}
+
+.brutal-subscribe__button {
+  width: 60%;
+  padding: 10px;
+  background-color: var(--jet);
+  color: var(--neutral-white);
+  border: 3px solid var(--jet);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.brutal-subscribe__button::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  transition: right 0.3s;
+}
+
+.brutal-subscribe__button:hover {
+  background-color: var(--coral);
+  color: var(--text-dark);
+}
+
+.brutal-subscribe__button:hover::after {
+  right: 10px;
+}
+
+.brutal-subscribe__button:active {
+  transform: scale(0.95);
+}
+
+.brutal-subscribe__decor {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background-color: var(--coral);
+  color: var(--text-dark);
+  padding: 5px 10px;
+  transform: rotate(-5deg);
+  font-weight: bold;
+  font-size: 24px;
+  border: 3px solid var(--jet);
+  transition: transform 0.3s;
+}
+
+.brutal-subscribe__container:hover .brutal-subscribe__decor {
+  transform: rotate(3deg) scale(1);
+}
+
+@media (max-width: 500px) {
+  .brutal-subscribe__container {
+    width: 90%;
+  }
+}
+/* HERO SECTION STYLES */
+.hero-section {
+  background: var(--gradient-top-right);
+  color: var(--background); /* white text on dark backgrounds */
+  padding: 2rem;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+/* =====================================================
+   6. Glitch & Additional Effects
+===================================================== */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.brutal-subscribe__container:hover .brutal-subscribe__title {
+  animation: glitch 0.3s infinite;
+}
