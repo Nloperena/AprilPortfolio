@@ -8,8 +8,7 @@ const App: React.FC = () => {
   return (
     <div>
       <HeroSection />
-      <StyleGuide
-      />
+     
       {/* ...other components */}
     </div>
   );
