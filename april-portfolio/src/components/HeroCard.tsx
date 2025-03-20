@@ -4,6 +4,7 @@ import { faArrowLeft, faArrowRight, faExternalLinkAlt } from '@fortawesome/free-
 import client from '../data/contentful.ts';
 import { gsap } from 'gsap';
 
+
 // Define your project interface.
 interface Project {
   title: string;

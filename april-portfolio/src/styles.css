@@ -64,15 +64,27 @@ code {
 .about-card {
   font-family: var(--font-base);
   width: 90%;
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 1200px;
+  min-height: 600px;
+  margin: 0 auto;
   background: var(--persian-green);
   border: 3px solid var(--jet);
   box-shadow: 12px 12px 0 var(--jet);
+  overflow: hidden;
+  position: relative;
   color: var(--neutral-white);
-  text-align: center;
+  text-align: left;
 }
+
+/* Add this new style for the about image to center it better */
+.about-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center 40%; /* Shift focus slightly above center */
+  transform: scale(1.1); /* Zoom out slightly to show more of the image */
+}
+
 .about-title {
   font-size: 1.75rem;
   font-weight: bold;
@@ -172,42 +184,78 @@ p {
 }
 
 /* =====================================================
-   3. Input Containers
+   3. Input Containers (Twice as Big as the 3x Scaled Version)
 ===================================================== */
 .input__container {
   position: relative;
   background: #f0f0f0;
-  padding: 20px;
+  padding: 10px; /* was 5px, now doubled */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
-  border: 4px solid var(--jet);
-  max-width: 350px;
+  gap: 10px; /* was 5px, now doubled */
+  border: 2px solid var(--jet); /* was 1px, now doubled */
+  max-width: 200px;  /* was 100px, now doubled */
   transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
   transform-style: preserve-3d;
-  transform: rotateX(10deg) rotateY(-10deg);
+  transform: rotateX(6deg) rotateY(-6deg); /* doubled the rotation angles */
   perspective: 1000px;
-  box-shadow: 10px 10px 0 var(--jet);
+  box-shadow: 6px 6px 0 var(--jet); /* doubled shadow offset */
 }
 
 .input__container:hover {
-  transform: rotateX(5deg) rotateY(1deg) scale(1.05);
-  box-shadow: 25px 25px 0 -5px var(--burnt-sienna), 25px 25px 0 0 var(--jet);
+  transform: rotateX(4deg) rotateY(2deg) scale(1.05);
+  box-shadow: 16px 16px 0 -5px var(--burnt-sienna), 16px 16px 0 0 var(--jet);
 }
 
-.shadow__input {
-  position: absolute;
+.input__search {
   width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  transform: translateZ(-50px);
-  background: linear-gradient(45deg, rgba(255,107,107,0.4) 0%, rgba(255,107,107,0.1) 100%);
-  filter: blur(20px);
+  outline: none;
+  border: 1px solid var(--jet); /* remains consistent */
+  padding: 10px; /* was 5px, now doubled */
+  font-size: 12px; /* was 6px, now doubled */
+  background: var(--neutral-white);
+  color: var(--text-dark);
+  transform: translateZ(6px); /* was 3px, now doubled */
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 3;
+  letter-spacing: -0.34px; /* was -0.17px, now doubled */
+  font-family: "Roboto", Arial, sans-serif;
 }
 
+.input__search::placeholder {
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px; /* was 6px, now doubled */
+}
+
+.input__search:hover,
+.input__search:focus {
+  background: #f0f0f0;
+  transform: translateZ(12px) translateX(-4px) translateY(-4px); /* movement doubled */
+  box-shadow: 4px 4px 0 var(--jet);
+}
+
+.input__container::before {
+  content: "";
+  position: absolute;
+  top: -10px;   /* was -5px */
+  left: 14px;   /* was 7px */
+  background: var(--burnt-sienna);
+  color: var(--neutral-white);
+  font-weight: bold;
+  padding: 4px 8px;  /* was 2px 4px */
+  font-size: 10px;    /* was 5px */
+  transform: translateZ(34px);  /* was 17px */
+  z-index: 4;
+  border: 2px solid var(--jet); /* was 1px */
+}
+
+/* =====================================================
+   4. Adjusted Brutalist Button (Smaller)
+===================================================== */
 .input__button__shadow {
   cursor: pointer;
   border: 3px solid var(--jet);
@@ -216,12 +264,13 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  transform: translateZ(20px);
+  padding: 6px 10px; /* Reduced padding */
+  transform: translateZ(15px); /* Smaller offset */
   position: relative;
   z-index: 3;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 14px; /* Smaller font size */
 }
 
 .input__button__shadow:hover {
@@ -232,54 +281,9 @@ p {
 
 .input__button__shadow svg {
   fill: var(--jet);
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
-
-.input__search {
-  width: 100%;
-  outline: none;
-  border: 3px solid var(--jet);
-  padding: 15px;
-  font-size: 18px;
-  background: var(--neutral-white);
-  color: var(--text-dark);
-  transform: translateZ(10px);
-  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  position: relative;
-  z-index: 3;
-  letter-spacing: -0.5px;
-  font-family: "Roboto", Arial, sans-serif;
-}
-
-.input__search::placeholder {
-  color: #666;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.input__search:hover,
-.input__search:focus {
-  background: #f0f0f0;
-  transform: translateZ(20px) translateX(-5px) translateY(-5px);
-  box-shadow: 5px 5px 0 var(--jet);
-}
-
-.input__container::before {
-  content: "USERNAME";
-  position: absolute;
-  top: -15px;
-  left: 20px;
-  background: var(--burnt-sienna);
-  color: var(--neutral-white);
-  font-weight: bold;
-  padding: 5px 10px;
-  font-size: 14px;
-  transform: translateZ(50px);
-  z-index: 4;
-  border: 2px solid var(--jet);
-}
-
 /* =====================================================
    4. Brutalist Button
 ===================================================== */
@@ -593,4 +597,71 @@ p {
 
 .brutal-subscribe__container:hover .brutal-subscribe__title {
   animation: glitch 0.3s infinite;
+}
+
+.footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;  /* Change as needed */
+  color: #fff;  /* Change as needed */
+  text-align: center;
+  padding: 1rem 0;
+  z-index: 100;  /* Ensure it's on top */
+}
+
+/* Skeleton Card Styles */
+.skeleton-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #f0f0f0;
+  border: 2px solid var(--jet);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 var(--jet);
+  margin: auto;
+}
+
+.skeleton-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skeleton-header {
+  width: 70%;
+  height: 20px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 15px;
+  background-color: #ddd;
+  margin-bottom: 8px;
+}
+
+.skeleton-text.short {
+  width: 50%;
 }

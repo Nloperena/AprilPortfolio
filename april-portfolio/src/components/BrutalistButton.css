@@ -1,0 +1,325 @@
+/* =====================================================
+   Brutalist Button - Mobile Optimized
+===================================================== */
+:root {
+    /* Color Palette (using HSL values) */
+    --burnt-sienna: hsla(12, 83%, 62%, 1);
+    --coral: hsla(16, 85%, 68%, 1);
+    --rebecca-purple: hsla(274, 53%, 37%, 1);
+    --persian-green: hsla(175, 75%, 36%, 1);
+    --jet: hsla(36, 5%, 19%, 1);
+    --neutral-white: #ffffff;
+    --font-base: 'Poppins', sans-serif;
+  }
+  
+  .brutalist-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 169px;
+    height: 60px;
+    background-color: var(--jet);
+    color: var(--neutral-white);
+    text-decoration: none;
+    font-family: var(--font-base);
+    font-weight: bold;
+    border: 3px solid var(--neutral-white);
+    outline: 3px solid var(--jet);
+    box-shadow: 6px 6px 0 var(--persian-green);
+    transition: all 0.1s ease-out;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brutalist-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    z-index: 1;
+    transition: none;
+    opacity: 0;
+  }
+  
+  @keyframes slide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .brutalist-button:hover::before {
+    opacity: 1;
+    animation: slide 2s infinite;
+  }
+  
+  .brutalist-button:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--jet);
+  }
+  
+  .brutalist-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+    background-color: var(--neutral-white);
+    color: var(--jet);
+    border-color: var(--jet);
+  }
+  
+  /* Icon container for Brutalist Button */
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    z-index: 1;
+    font-size: 24px; /* Default icon size */
+  }
+  
+  .brutalist-button:hover .btn-icon {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  
+  .brutalist-button:active .btn-icon {
+    transform: rotate(10deg) scale(0.9);
+  }
+  
+  .button-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .brutalist-button:hover .button-text {
+    transform: skew(-5deg);
+  }
+  
+  .brutalist-button:active .button-text {
+    transform: skew(5deg);
+  }
+  
+  .button-text span:first-child {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  .button-text span:last-child {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  /* =====================================================
+     Responsive Media Queries
+  ===================================================== */
+  
+  /* Extra Small Devices (phones, 320px and up) */
+  @media only screen and (min-width: 320px) and (max-width: 374px) {
+    .brutalist-button {
+      width: 120px;
+      height: 40px;
+      padding: 0 8px;
+      border: 2px solid var(--neutral-white);
+      outline: 2px solid var(--jet);
+      box-shadow: 4px 4px 0 var(--persian-green);
+    }
+    
+    .brutalist-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--jet);
+    }
+    
+    .btn-icon {
+      font-size: 16px; /* Smaller icon for smallest screens */
+      margin-right: 6px;
+    }
+    
+    .button-text span:first-child {
+      font-size: 8px;
+    }
+    
+    .button-text span:last-child {
+      font-size: 12px;
+    }
+  }
+  
+  /* Small Devices (phones, 375px and up) */
+  @media only screen and (min-width: 375px) and (max-width: 424px) {
+    .brutalist-button {
+      width: 130px;
+      height: 44px;
+      padding: 0 10px;
+      border: 2px solid var(--neutral-white);
+      outline: 2px solid var(--jet);
+      box-shadow: 4px 4px 0 var(--persian-green);
+    }
+    
+    .brutalist-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--jet);
+    }
+    
+    .btn-icon {
+      font-size: 18px; /* Adjusted icon size */
+      margin-right: 6px;
+    }
+    
+    .button-text span:first-child {
+      font-size: 9px;
+    }
+    
+    .button-text span:last-child {
+      font-size: 13px;
+    }
+  }
+  
+  /* Medium Devices (phones, 425px and up) */
+  @media only screen and (min-width: 425px) and (max-width: 767px) {
+    .brutalist-button {
+      width: 140px;
+      height: 48px;
+      padding: 0 12px;
+      box-shadow: 5px 5px 0 var(--persian-green);
+    }
+    
+    .brutalist-button:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 var(--jet);
+    }
+    
+    .btn-icon {
+      font-size: 20px; /* Adjusted icon size */
+      margin-right: 7px;
+    }
+    
+    .button-text span:first-child {
+      font-size: 10px;
+    }
+    
+    .button-text span:last-child {
+      font-size: 14px;
+    }
+  }
+  
+  /* Tablets (768px and up) */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .brutalist-button {
+      width: 150px;
+      height: 54px;
+      box-shadow: 5px 5px 0 var(--persian-green);
+    }
+    
+    .btn-icon {
+      font-size: 22px; /* Adjusted icon size */
+    }
+    
+    .button-text span:first-child {
+      font-size: 10px;
+    }
+    
+    .button-text span:last-child {
+      font-size: 15px;
+    }
+  }
+  
+  /* Laptops/Desktops (1024px and up) */
+  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    /* Standard size as defined in base styles */
+  }
+  
+  /* Extra Large Screens (1920px and up) */
+  @media only screen and (min-width: 1920px) {
+    .brutalist-button {
+      width: 180px;
+      height: 65px;
+      padding: 0 18px;
+      border: 4px solid var(--neutral-white);
+      outline: 4px solid var(--jet);
+      box-shadow: 8px 8px 0 var(--persian-green);
+    }
+    
+    .brutalist-button:hover {
+      transform: translate(-5px, -5px);
+      box-shadow: 12px 12px 0 var(--jet);
+    }
+    
+    .btn-icon {
+      font-size: 28px; /* Larger icon for big screens */
+      margin-right: 10px;
+    }
+    
+    .button-text span:first-child {
+      font-size: 12px;
+    }
+    
+    .button-text span:last-child {
+      font-size: 18px;
+    }
+  }
+  
+  /* Touch Device Optimizations */
+  @media (hover: none) {
+    .brutalist-button {
+      /* Increase touch target */
+      padding: 0 10px;
+    }
+    
+    .brutalist-button:active::before {
+      opacity: 1;
+      animation: slide 2s infinite;
+    }
+    
+    /* Remove hover effects that might interfere with touch */
+    .brutalist-button:hover {
+      transform: none;
+      box-shadow: 6px 6px 0 var(--persian-green);
+    }
+    
+    /* Apply hover effects to active state instead */
+    .brutalist-button:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+      background-color: var(--neutral-white);
+      color: var(--jet);
+    }
+    
+    .brutalist-button:active .btn-icon {
+      transform: rotate(10deg) scale(0.9);
+    }
+    
+    .brutalist-button:active .button-text {
+      transform: skew(5deg);
+    }
+  }
+  
+  /* Optimize for high contrast/accessibility */
+  @media (prefers-contrast: high) {
+    .brutalist-button {
+      border: 4px solid black;
+      outline: 4px solid white;
+      box-shadow: 8px 8px 0 black;
+      background-color: black;
+      color: white;
+    }
+  }
+  
+  /* Optimize for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .brutalist-button, .btn-icon, .button-text {
+      transition: none;
+    }
+    
+    @keyframes slide {
+      0% { opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 0; }
+    }
+  }

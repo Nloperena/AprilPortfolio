@@ -60,7 +60,7 @@ const PricingCard: React.FC = () => {
           width: 90%;
           max-width: 600px;
           min-height: 500px;
-          background: var(--coral);
+          background: var(--rebecca-purple, hsla(274, 53%, 37%, 1));
           border: 3px solid var(--jet);
           box-shadow: 12px 12px 0 var(--jet);
           overflow: hidden;
@@ -130,14 +130,14 @@ const PricingCard: React.FC = () => {
           <BrutalistButton
             label="Prev"
             icon={faArrowLeft}
-            btnColor="hsla(274, 53%, 37%, 1)"
+            btnColor="hsla(12, 83%, 62%, 1)"  /* Burnt sienna/red */
             iconColor="#fff"
             onClick={prevPackage}
           />
           <BrutalistButton
             label="Next"
             icon={faArrowRight}
-            btnColor="hsla(12, 83%, 62%, 1)"
+            btnColor="hsla(175, 75%, 36%, 1)"  /* Changed to Persian Green */
             iconColor="#fff"
             onClick={nextPackage}
           />
