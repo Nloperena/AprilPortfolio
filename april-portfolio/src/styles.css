@@ -22,7 +22,7 @@
   --gradient-radial: radial-gradient(var(--burnt-sienna), var(--coral), var(--rebecca-purple), var(--persian-green), var(--jet));
 
   /* Typography */
-  --font-base: 'Poppins', sans-serif;
+  --font-base: "Poppins", sans-serif;
 }
 
 /* Import fonts */
