@@ -1,376 +1,412 @@
 /* Base styles for Hero Card */
 .hero-card {
-    font-family: var(--font-base);
-    width: 100%;
-    max-width: 600px;
-    background: var(--persian-green, hsla(175, 75%, 36%, 1));
-    border: 3px solid var(--jet);
-    box-shadow: 12px 12px 0 var(--jet);
-    color: var(--neutral-white);
-    padding: 2rem;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
+  font-family: var(--font-base);
+  width: 100%;
+  max-width: 600px;
+  background: var(--persian-green, hsla(175, 75%, 36%, 1));
+  border: 3px solid var(--jet);
+  box-shadow: 12px 12px 0 var(--jet);
+  color: var(--neutral-white);
+  padding: 2rem;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.project-title {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: bold;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.2;
+}
+
+.project-description {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.project-image {
+  width: 100%;
+  height: auto; /* Auto height */
+  padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+  position: relative;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  border: 2px solid var(--jet);
+  overflow: hidden;
+}
+
+.project-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.tech-tag {
+  background: rgba(0, 0, 0, 0.2);
+  padding: clamp(0.25rem, 0.5vw + 0.1rem, 0.4rem) clamp(0.4rem, 1vw + 0.2rem, 0.8rem);
+  border-radius: 4px;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-links {
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.75rem, 2vw, 1rem);
+  background: var(--jet);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.project-link-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Navigation controls */
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Extra Small Devices (phones, 320px to 374px) - Optimized for 358px */
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+  .hero-card {
+    padding: 0.9rem;
+    box-shadow: 6px 6px 0 var(--jet);
+    margin-top: 0.75rem;
+    max-width: 100%;
+    border-width: 2px;
   }
   
   .project-title {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
   }
   
   .project-description {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
+    font-size: 0.75rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
   }
   
   .project-image {
-    width: 100%;
-    height: auto; /* Auto height */
-    padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
-    position: relative;
-    margin-bottom: 1.5rem;
-    border: 2px solid var(--jet);
-    overflow: hidden;
-  }
-  
-  .project-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    padding-top: 52%; /* Slightly flatter aspect ratio */
+    margin-bottom: 0.7rem;
+    border-width: 1px;
   }
   
   .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.2rem;
+    margin-bottom: 0.7rem;
   }
   
   .tech-tag {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.2rem 0.3rem;
+    font-size: 0.65rem;
+    border-radius: 3px;
   }
   
   .project-links {
-    display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   
   .project-link-btn {
-    display: inline-flex;
-    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .nav-controls {
+    margin-top: 0.7rem;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+  }
+}
+
+/* Small to Medium-Small Devices (375px to 500px) */
+@media only screen and (min-width: 375px) and (max-width: 500px) {
+  .hero-card {
+    padding: 1rem;
+    box-shadow: 7px 7px 0 var(--jet);
+    max-width: 95%;
+    border-width: 2px;
+  }
+  
+  .project-title {
+    font-size: 1.1rem; /* Keep consistent from 375px to 500px */
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  
+  .project-description {
+    font-size: 0.8rem; /* Keep consistent from 375px to 500px */
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .project-image {
+    padding-top: 52%; /* Slightly flatter aspect ratio */
+    margin-bottom: 0.8rem;
+    border-width: 1px;
+  }
+  
+  .tech-stack {
+    gap: 0.25rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .tech-tag {
+    padding: 0.25rem 0.35rem;
+    font-size: 0.7rem;
+    border-radius: 3px;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .project-link-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.78rem;
+  }
+  
+  .nav-controls {
+    margin-top: 0.8rem;
+    gap: 0.6rem;
+  }
+}
+
+/* Medium-Small to Medium Devices (501px to 590px) */
+@media only screen and (min-width: 501px) and (max-width: 590px) {
+  .hero-card {
+    padding: 1.1rem;
+    box-shadow: 8px 8px 0 var(--jet);
+    max-width: 92%;
+    border-width: 2px;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.9rem;
+  }
+  
+  .project-image {
+    padding-top: 52%; /* Slightly flatter aspect ratio */
+    margin-bottom: 0.9rem;
+    border-width: 2px;
+  }
+  
+  .tech-stack {
+    gap: 0.3rem;
+    margin-bottom: 0.9rem;
+  }
+  
+  .tech-tag {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.75rem;
+  }
+  
+  .project-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  
+  .project-link-btn {
+    flex: 1;
+    min-width: 100px;
+    justify-content: center;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  
+  .nav-controls {
+    margin-top: 0.9rem;
+    gap: 0.75rem;
+  }
+}
+
+/* Medium Devices (591px-767px) */
+@media only screen and (min-width: 591px) and (max-width: 767px) {
+  .hero-card {
+    padding: 1.25rem;
+    box-shadow: 10px 10px 0 var(--jet);
+    max-width: 550px;
+    border-width: 3px;
+  }
+  
+  .project-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.9rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+  }
+  
+  .project-image {
+    padding-top: 54%;
+    margin-bottom: 1.1rem;
+  }
+  
+  .tech-stack {
+    gap: 0.35rem;
+    margin-bottom: 1.1rem;
+  }
+  
+  .tech-tag {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.78rem;
+  }
+  
+  .project-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .project-link-btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .nav-controls {
+    margin-top: 1.1rem;
+    gap: 0.8rem;
+  }
+}
+
+/* Tablets (768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .hero-card {
+    max-width: 600px;
+    padding: 1.5rem;
+  }
+  
+  .project-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Laptops/Desktops (1024px and up) */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .hero-card {
+    max-width: 550px;
+    padding: 1.75rem;
+  }
+}
+
+/* Large Desktops (1440px and up) */
+@media only screen and (min-width: 1440px) {
+  .hero-card {
+    max-width: 600px;
+    padding: 2rem;
+  }
+}
+
+/* Extra Large Screens (1920px and up) */
+@media only screen and (min-width: 1920px) {
+  .hero-card {
+    max-width: 700px;
+    padding: 2.25rem;
+    box-shadow: 15px 15px 0 var(--jet);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .hero-card {
+    border-color: var(--jet);
+  }
+  
+  .tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .project-link-btn {
     background: var(--jet);
     color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+  }
+}
+
+/* Adjust for touchscreens - larger touch targets */
+@media (hover: none) {
+  .project-link-btn {
+    padding: clamp(0.6rem, 1.5vw, 0.7rem) clamp(1rem, 2vw, 1.2rem);
   }
   
-  .project-link-btn:hover {
-    transform: translateY(-2px);
+  .tech-tag {
+    padding: clamp(0.35rem, 1vw, 0.4rem) clamp(0.6rem, 1.5vw, 0.8rem);
   }
   
-  /* Navigation controls */
+  /* Add extra spacing for fingers */
+  .project-links {
+    gap: clamp(1rem, 2vw, 1.2rem);
+  }
+  
   .nav-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: clamp(1.2rem, 3vw, 1.5rem);
+  }
+}
+
+/* Print styles for portfolio PDFs */
+@media print {
+  .hero-card {
+    box-shadow: none;
+    border: 1px solid black;
+    color: black;
+    background: white;
   }
   
-  /* Extra Small Devices (phones, 320px and up) */
-  @media only screen and (min-width: 320px) and (max-width: 374px) {
-    .hero-card {
-      padding: 1rem;
-      box-shadow: 6px 6px 0 var(--jet);
-      margin-top: 1rem;
-    }
-    
-    .project-title {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-description {
-      font-size: 0.75rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    
-    .project-image {
-      margin-bottom: 0.75rem;
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-stack {
-      gap: 0.25rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    .tech-tag {
-      padding: 0.2rem 0.4rem;
-      font-size: 0.65rem;
-    }
-    
-    .project-links {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .project-link-btn {
-      width: 100%;
-      padding: 0.4rem;
-      font-size: 0.8rem;
-      justify-content: center;
-    }
-    
-    .nav-controls {
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+  .project-image {
+    padding-top: 40%; /* Slightly flatter for print */
   }
   
-  /* Small Devices (phones, 375px and up) */
-  @media only screen and (min-width: 375px) and (max-width: 424px) {
-    .hero-card {
-      padding: 1.25rem;
-      box-shadow: 8px 8px 0 var(--jet);
-    }
-    
-    .project-title {
-      font-size: 1.1rem;
-    }
-    
-    .project-description {
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-tag {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.7rem;
-    }
-    
-    .project-links {
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    
-    .project-link-btn {
-      width: 100%;
-      padding: 0.45rem;
-      font-size: 0.85rem;
-      justify-content: center;
-    }
+  .tech-tag {
+    border: 1px solid black;
+    background: #f0f0f0;
+    color: black;
   }
   
-  /* Medium Devices (phones, 425px and up) */
-  @media only screen and (min-width: 425px) and (max-width: 767px) {
-    .hero-card {
-      padding: 1.5rem;
-      box-shadow: 10px 10px 0 var(--jet);
-    }
-    
-    .project-title {
-      font-size: 1.25rem;
-    }
-    
-    .project-description {
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-tag {
-      font-size: 0.75rem;
-      padding: 0.3rem 0.6rem;
-    }
-    
-    .project-links {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    
-    .project-link-btn {
-      flex: 1;
-      min-width: 120px;
-      font-size: 0.9rem;
-      justify-content: center;
-    }
+  .nav-controls {
+    display: none;
   }
-  
-  /* Tablets (768px and up) */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .hero-card {
-      max-width: 600px;
-      padding: 1.75rem;
-    }
-    
-    .project-title {
-      font-size: 1.4rem;
-    }
-    
-    .project-description {
-      font-size: 0.9rem;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-tag {
-      font-size: 0.8rem;
-    }
-    
-    .project-links {
-      justify-content: flex-start;
-    }
-  }
-  
-  /* Laptops/Desktops (1024px and up) */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    .hero-card {
-      max-width: 550px;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .project-title {
-      font-size: 1.5rem;
-    }
-    
-    .project-description {
-      font-size: 0.95rem;
-    }
-  }
-  
-  /* Large Desktops (1440px and up) */
-  @media only screen and (min-width: 1440px) {
-    .hero-card {
-      max-width: 600px;
-    }
-    
-    .project-title {
-      font-size: 1.7rem;
-    }
-    
-    .project-description {
-      font-size: 1rem;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-tag {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.85rem;
-    }
-  }
-  
-  /* Extra Large Screens (1920px and up) */
-  @media only screen and (min-width: 1920px) {
-    .hero-card {
-      max-width: 700px;
-      padding: 2.5rem;
-      box-shadow: 15px 15px 0 var(--jet);
-    }
-    
-    .project-title {
-      font-size: 1.8rem;
-    }
-    
-    .project-description {
-      font-size: 1.05rem;
-    }
-    
-    .project-image {
-      /* 16:9 aspect ratio maintained through padding-top */
-    }
-    
-    .tech-tag {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-    }
-  }
-  
-  /* Dark Mode Support */
-  @media (prefers-color-scheme: dark) {
-    .hero-card {
-      border-color: var(--jet);
-    }
-    
-    .tech-tag {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    .project-link-btn {
-      background: var(--jet);
-      color: white;
-    }
-  }
-  
-  /* Adjust for touchscreens - larger touch targets */
-  @media (hover: none) {
-    .project-link-btn {
-      padding: 0.7rem 1.2rem;
-    }
-    
-    .tech-tag {
-      padding: 0.4rem 0.8rem;
-    }
-    
-    /* Add extra spacing for fingers */
-    .project-links {
-      gap: 1.2rem;
-    }
-    
-    .nav-controls {
-      gap: 1.5rem;
-    }
-  }
-  
-  /* Print styles for portfolio PDFs */
-  @media print {
-    .hero-card {
-      box-shadow: none;
-      border: 1px solid black;
-      color: black;
-      background: white;
-    }
-    
-    .project-image {
-      padding-top: 40%; /* Slightly flatter for print */
-    }
-    
-    .tech-tag {
-      border: 1px solid black;
-      background: #f0f0f0;
-      color: black;
-    }
-    
-    .nav-controls {
-      display: none;
-    }
-  }
+}

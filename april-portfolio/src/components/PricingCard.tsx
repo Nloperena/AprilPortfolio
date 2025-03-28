@@ -40,9 +40,7 @@ const PricingCard: React.FC = () => {
         opacity: 0,
         duration: 0.3,
         onComplete: () => {
-          setCurrentPackage(
-            (prev) => (prev - 1 + pricingPackages.length) % pricingPackages.length
-          );
+          setCurrentPackage((prev) => (prev - 1 + pricingPackages.length) % pricingPackages.length);
         }
       });
     }
@@ -67,6 +65,7 @@ const PricingCard: React.FC = () => {
           position: relative;
           color: var(--neutral-white);
           padding: 20px;
+          margin: 0 auto; /* Center horizontally */
         }
         .pricing-title {
           font-size: 1.75rem;
@@ -102,12 +101,67 @@ const PricingCard: React.FC = () => {
         .ecommerce {
           border-color: hsla(200, 80%, 40%, 1);
         }
+        /* Mobile optimizations */
         @media (max-width: 768px) {
           .pricing-card {
             padding: 10px;
+            text-align: center;
           }
           .pricing-title {
             font-size: 1.5rem;
+          }
+          .nav-controls {
+            justify-content: center;
+          }
+        }
+        /* Extra Small Devices (320px to 374px) */
+        @media only screen and (min-width: 320px) and (max-width: 374px) {
+          .pricing-card {
+            padding: 8px;
+            min-height: 420px;
+            text-align: center;
+          }
+          .pricing-title {
+            font-size: 1.25rem;
+          }
+          .package-price {
+            font-size: 1rem;
+          }
+          .package-features li {
+            font-size: 0.85rem;
+          }
+          .add-ons {
+            font-size: 0.8rem;
+          }
+          .nav-controls {
+            gap: 8px;
+            margin-top: 15px;
+            justify-content: center;
+          }
+        }
+        /* Small to Medium-Small Devices (375px to 500px) */
+        @media only screen and (min-width: 375px) and (max-width: 500px) {
+          .pricing-card {
+            padding: 10px;
+            min-height: 450px;
+            text-align: center;
+          }
+          .pricing-title {
+            font-size: 1.4rem;
+          }
+          .package-price {
+            font-size: 1.1rem;
+          }
+          .package-features li {
+            font-size: 0.9rem;
+          }
+          .add-ons {
+            font-size: 0.85rem;
+          }
+          .nav-controls {
+            gap: 8px;
+            margin-top: 18px;
+            justify-content: center;
           }
         }
       `}</style>
@@ -130,14 +184,14 @@ const PricingCard: React.FC = () => {
           <BrutalistButton
             label="Prev"
             icon={faArrowLeft}
-            btnColor="hsla(12, 83%, 62%, 1)"  /* Burnt sienna/red */
+            btnColor="hsla(12, 83%, 62%, 1)"
             iconColor="#fff"
             onClick={prevPackage}
           />
           <BrutalistButton
             label="Next"
             icon={faArrowRight}
-            btnColor="hsla(175, 75%, 36%, 1)"  /* Changed to Persian Green */
+            btnColor="hsla(175, 75%, 36%, 1)"
             iconColor="#fff"
             onClick={nextPackage}
           />

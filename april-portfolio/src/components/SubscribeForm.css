@@ -1,0 +1,147 @@
+.brutal-subscribe__container {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--neutral-white);
+    border: 5px solid var(--jet);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.605);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .brutal-subscribe__container:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .brutal-subscribe__header {
+    background-color: var(--jet);
+    color: var(--neutral-white);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brutal-subscribe__header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--burnt-sienna) 0,
+      var(--burnt-sienna) 10px,
+      var(--jet) 10px,
+      var(--jet) 20px
+    );
+    opacity: 0.1;
+    animation: stripe-animation 20s linear infinite;
+  }
+  
+  @keyframes stripe-animation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .brutal-subscribe__title {
+    display: block;
+    font-size: 36px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    text-shadow: 3px 3px 0 var(--jet);
+  }
+  
+  .brutal-subscribe__container:hover .brutal-subscribe__title {
+    animation: glitch 0.3s infinite;
+  }
+  
+  .brutal-subscribe__subtitle {
+    display: block;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .brutal-subscribe__form {
+    padding: 20px;
+  }
+  
+  .brutal-subscribe__input {
+    width: calc(100% - 26px);
+    padding: 10px;
+    border: 3px solid var(--jet);
+    font-family: inherit;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .brutal-subscribe__input:focus {
+    outline: none;
+    background-color: var(--coral);
+    transform: scale(1.05);
+  }
+  
+  .brutal-subscribe__button {
+    width: 60%;
+    padding: 10px;
+    background-color: var(--jet);
+    color: var(--neutral-white);
+    border: 3px solid var(--jet);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brutal-subscribe__button::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    transition: right 0.3s;
+  }
+  
+  .brutal-subscribe__button:hover {
+    background-color: var(--coral);
+    color: var(--text-dark);
+  }
+  
+  .brutal-subscribe__button:hover::after {
+    right: 10px;
+  }
+  
+  .brutal-subscribe__button:active {
+    transform: scale(0.95);
+  }
+  
+  .brutal-subscribe__decor {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: var(--coral);
+    color: var(--text-dark);
+    padding: 5px 10px;
+    transform: rotate(-5deg);
+    font-weight: bold;
+    font-size: 24px;
+    border: 3px solid var(--jet);
+    transition: transform 0.3s;
+  }
+  
+  .brutal-subscribe__container:hover .brutal-subscribe__decor {
+    transform: rotate(3deg) scale(1);
+  }
+  
+  @media (max-width: 500px) {
+    .brutal-subscribe__container {
+      width: 90%;
+    }
+  }
